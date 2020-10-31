@@ -1,9 +1,27 @@
 const errorMessage = document.getElementById('error-message');
 const countryDetails = document.getElementById('country-details');
 const searchResults = document.getElementById('search-results');
+const searchBox = document.getElementById('search-box');
+const searchBtn = document.getElementById('search-button');
+
+searchBox.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+        getCountry(searchBox.value);
+        searchBox.value = '';
+    }
+});
+
+searchBtn.addEventListener('click', () => {
+    if (searchBox.value !== '') {
+        getCountry(searchBox.value);
+        searchBox.value = '';
+    }
+});
 
 async function getCountry(country) {
     const url = `https://restcountries.eu/rest/v2/name/${country}`;
+
+    countryDetails.classList.add('animate-height');
 
     try {
         const result = await axios.get(url);
@@ -43,8 +61,6 @@ async function getCountry(country) {
         They speak ${languageMessage}.
         </p>`;
 
-        countryDetails.classList.add('animate-height');
-
         searchResults.textContent = '';
         let e = document.createElement('span');
         e.innerHTML = htmlData;
@@ -54,21 +70,8 @@ async function getCountry(country) {
         console.log(error);
         searchResults.textContent = '';
         errorMessage.textContent = 'Error: Input not valid. Type a country name!';
-        countryDetails.classList.add('animate-height');
+
     }
 }
 
-const searchBox = document.getElementById('search-box');
-const searchBtn = document.getElementById('search-button');
 
-searchBox.addEventListener('keyup', (e) => {
-    if (e.keyCode === 13) {
-        getCountry(searchBox.value);
-        searchBox.value = '';
-    }
-});
-
-searchBtn.addEventListener('click', () => {
-    getCountry(searchBox.value);
-    searchBox.value = '';
-});

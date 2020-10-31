@@ -3,15 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Country search</title>
-    <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <title>Country Information Search</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <input id="search-box" type="text" />
+
+    <div class="search-container">
+    <input id="search-box" type="text" placeholder="zoeken" />
     <button id="search-button" type="button">zoeken</button>
+    </div>
+
+
+    <div id="country-details">
     <div id="search-results"></div>
     <div id="error-message"></div>
+</div>
+
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
 </body>

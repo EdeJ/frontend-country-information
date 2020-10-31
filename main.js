@@ -4,7 +4,6 @@ const searchResults = document.getElementById('search-results');
 const searchBox = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-button');
 
-let firstLoad = false;
 
 searchBox.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
@@ -23,10 +22,7 @@ searchBtn.addEventListener('click', () => {
 async function getCountry(country) {
     const url = `https://restcountries.eu/rest/v2/name/${country}`;
 
-    if (firstLoad) {
-        firstLoad = false;
-        countryDetails.classList.add('animate-height');
-    }
+    countryDetails.classList.add('animate-height');
 
     try {
         const result = await axios.get(url);

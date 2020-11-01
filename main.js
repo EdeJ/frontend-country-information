@@ -4,7 +4,6 @@ const searchResults = document.getElementById('search-results');
 const searchBox = document.getElementById('search-box');
 const searchBtn = document.getElementById('search-button');
 
-
 searchBox.addEventListener('keyup', (e) => {
     if (e.keyCode === 13) {
         getCountry(searchBox.value);
@@ -26,7 +25,7 @@ async function getCountry(country) {
 
     try {
         const result = await axios.get(url);
-        console.log(result.data[0]);
+
         const { name,
             subregion,
             population,
@@ -47,20 +46,15 @@ async function getCountry(country) {
                 }
             }, '');
         }
+
         const valutaMessage = getCountryProp(currencies, true);
-        console.log(valutaMessage);
-
         const languageMessage = getCountryProp(languages);
-        console.log(languageMessage);
-
 
         const htmlData = `<img src="${flag}" width="100" alt="country flag">
         <h2>${name}</h2>
-        <p>
-        ${name} is situated in ${subregion}. It has a population of ${population} people.<br>
+        <p>${name} is situated in ${subregion}. It has a population of ${population} people.<br>
         The capital is ${capital} and you can pay with ${valutaMessage}<br>
-        They speak ${languageMessage}.
-        </p>`;
+        They speak ${languageMessage}.</p>`;
 
         searchResults.textContent = '';
         let e = document.createElement('span');
@@ -71,7 +65,6 @@ async function getCountry(country) {
         console.log(error);
         searchResults.textContent = '';
         errorMessage.textContent = 'Error: Input not valid. Type a country name!';
-
     }
 }
 

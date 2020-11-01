@@ -60,8 +60,9 @@ button {
     justify-content: space-evenly
 }
 
-body div {
-    padding: 0;
+.result {    
+    height: 0;
+     padding: 0 60px;
 }
 
 #country-details {
@@ -79,9 +80,12 @@ body div {
 }
 
 .animate-height {
-    padding: 40px 60px;
+    height: 250px;
+}   
+#search-results {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
 #search-results img {
     margin-bottom: 20px;
 }

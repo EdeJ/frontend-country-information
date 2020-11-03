@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 *,
 *:before,
 *:after {
@@ -108,39 +110,68 @@ margin-right: 10px;
 .hide {
     display: none;
 }
-.show::before {
+
+.show span {
     position: absolute;
-    margin: 10px;
     content: 'x';
-    right: 0;
-    top: -4px;
+    right: 2px;
+    top: 2px;
+    color: #888;
 }
 .show {
+    border-radius: 5px;
     position: relative;
     display: block;
     padding: 8px;
     margin-top: 5px;
-    border: 2px solid #aaa;
+    margin-bottom: 5px;
+    border: 2px solid;
+}
+span.show {
+    padding-right: 30px;
 }
 
 #country-list {
     column-count: 3;
     list-style: none;
 }
-#country-list .blue {
+#country-list .blue span {
     color: #5575C1;
 }
-#country-list .green {
+#country-list .green span{
     color: #4C824B;
 }
-#country-list .red {
+#country-list .red span{
     color: #d14e5b;
 }
-#country-list .yellow {
+#country-list .yellow span{
     color: #FFD435;
 }
-#country-list .purple {
+#country-list .purple span {
     color: #A653BA;
 }
 
+
  
+
+
+#country-list .blue .show {
+    color: #5575C1;
+    background-color: #b9cbf5;
+}
+#country-list .green .show {
+    color: #4C824B;
+    background-color: #c2ffc1;
+}
+#country-list .red .show {
+    color: #d14e5b;
+    background-color: #f7c1c6;
+}
+#country-list .yellow .show {
+    background-color: #FFD435;
+    color: #6e5d20;
+}
+#country-list .purple .show  {
+    color: #A653BA;
+    background-color: #f4caff;
+}

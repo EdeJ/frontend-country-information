@@ -28,28 +28,29 @@ function printCountries(allCountries) {
         const imgElement = document.createElement('img');
         const nameSpan = document.createElement('span');
         nameSpan.classList.add('country-name');
+        const detailsSpan = document.createElement('span');
 
         switch (region) {
             case 'Africa':
-                nameSpan.classList.add('blue');
+                listElement.classList.add('blue');
                 break;
             case 'Americas':
-                nameSpan.classList.add('green');
+                listElement.classList.add('green');
                 break;
             case 'Asia':
-                nameSpan.classList.add('red');
+                listElement.classList.add('red');
                 break;
             case 'Europe':
-                nameSpan.classList.add('yellow');
+                listElement.classList.add('yellow');
                 break;
             case 'Oceania':
-                nameSpan.classList.add('purple');
+                listElement.classList.add('purple');
                 break;
             default:
                 break;
         }
 
-        const detailsSpan = document.createElement('span');
+
         detailsSpan.classList.add('hide');
 
         imgElement.setAttribute('src', flag);
@@ -60,6 +61,10 @@ function printCountries(allCountries) {
         detailsSpan.textContent = `${name} heeft een populatie van: ${population}`;
         listElement.appendChild(detailsSpan);
         listElement.addEventListener('click', () => toggleDetails(detailsSpan));
+        const cancelBtn = document.createElement('span');
+        cancelBtn.classList.add('material-icons');
+        cancelBtn.textContent = 'cancel';
+        detailsSpan.appendChild(cancelBtn);
 
         countryList.appendChild(listElement);
 

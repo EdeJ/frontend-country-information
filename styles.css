@@ -98,6 +98,9 @@ button {
     cursor: pointer;
     padding: 40px;
 }
+#country-list li {
+    position: relative;
+}
 #country-list img {
 width: 20px;
 margin-right: 10px;
@@ -105,12 +108,21 @@ margin-right: 10px;
 .hide {
     display: none;
 }
+.show::before {
+    position: absolute;
+    margin: 10px;
+    content: 'x';
+    right: 0;
+    top: -4px;
+}
 .show {
+    position: relative;
     display: block;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #eee;
+    border: 2px solid #aaa;
 }
+
 #country-list {
     column-count: 3;
     list-style: none;

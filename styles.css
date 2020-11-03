@@ -12,7 +12,7 @@ body {
     width: 100%;
 }
 
-body {
+.country-search {
     background: url("./assets/planet-earth.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -90,3 +90,45 @@ button {
 #search-results img {
     margin-bottom: 20px;
 }
+.world-map {
+    width: 100vw;;
+}
+#country-list {
+    display: block;
+    cursor: pointer;
+    padding: 40px;
+}
+#country-list img {
+width: 20px;
+margin-right: 10px;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #eee;
+}
+#country-list {
+    column-count: 3;
+    list-style: none;
+}
+#country-list .blue {
+    color: #5575C1;
+}
+#country-list .green {
+    color: #4C824B;
+}
+#country-list .red {
+    color: #d14e5b;
+}
+#country-list .yellow {
+    color: #FFD435;
+}
+#country-list .purple {
+    color: #A653BA;
+}
+
+ 

@@ -1,5 +1,5 @@
-
 const countryList = document.getElementById('country-list');
+const orderSelect = document.getElementsByClassName('custom-select')[0];
 
 getAllCountries();
 
@@ -8,17 +8,37 @@ async function getAllCountries() {
 
     try {
         const result = await axios.get(url);
-        console.log(result.data);
-        const allCountries = result.data;
+        // console.log(result.data);
+        let allCountries = result.data;
+        allCountries = allCountries.filter(country => country.population > 0);
         printCountries(allCountries);
+
+        orderSelect.addEventListener('change', (e) => {
+            allCountries = sortCountries(allCountries, e.target.value);
+            console.log('CHANGE');
+            countryList.textContent = '';
+            printCountries(allCountries);
+        });
     } catch (error) {
         console.log(error);
     }
 }
 
+function sortCountries(allCountries, orderBy) {
+    switch (orderBy) {
+        case 'alphabetic':
+            return allCountries.sort((a, b) => a.name - b.name);
+        case 'population':
+            return allCountries.sort((a, b) => a.population - b.population);
+
+        default:
+            return allCountries;
+    }
+}
+
 function printCountries(allCountries) {
-    allCountries = sortCountries(allCountries);
-    console.log(allCountries);
+    console.log('printCountries');
+    // console.log(allCountries);
 
     allCountries.forEach((country, index) => {
         const { name, flag, population, region } = country;
@@ -79,11 +99,4 @@ function toggleDetails(detailsSpan) {
         detailsSpan.classList.remove('show');
         detailsSpan.classList.add('hide');
     }
-}
-
-function sortCountries(allCountries) {
-    return allCountries.sort((a, b) => {
-        return a.population - b.population;
-    });
-
 }

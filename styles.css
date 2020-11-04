@@ -65,7 +65,9 @@ button {
     display: flex;
     justify-content: space-evenly
 }
-
+#search-box{
+    margin-right: 20px;
+}
 .result {    
     height: 0;
      padding: 0 60px;

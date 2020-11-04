@@ -141,6 +141,7 @@ span.show {
 #country-list {
     column-count: 3;
     list-style: none;
+    color: #4C824B;
 }
 #country-list .blue span {
     color: #5575C1;

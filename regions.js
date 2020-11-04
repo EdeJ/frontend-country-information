@@ -11,13 +11,13 @@ async function getAllCountries() {
         // console.log(result.data);
         let allCountries = result.data;
         allCountries = allCountries.filter(country => country.population > 0);
-        sortCountries(allCountries, 'population');
+        allCountries = sortCountries(allCountries, 'population');
         printCountries(allCountries);
 
         orderSelect.addEventListener('change', (e) => {
             allCountries = sortCountries(allCountries, e.target.value);
-            console.log('CHANGE');
             countryList.textContent = '';
+
             printCountries(allCountries);
         });
     } catch (error) {
@@ -28,7 +28,11 @@ async function getAllCountries() {
 function sortCountries(allCountries, orderBy) {
     switch (orderBy) {
         case 'alphabetic':
-            return allCountries.sort((a, b) => a.name - b.name);
+            return allCountries.sort((a, b) => {
+                if (a.name < b.name) { return -1; }
+                if (a.name > b.name) { return 1; }
+                return 0;
+            });
         case 'population':
             return allCountries.sort((a, b) => a.population - b.population);
 
@@ -38,8 +42,6 @@ function sortCountries(allCountries, orderBy) {
 }
 
 function printCountries(allCountries) {
-    console.log('printCountries');
-    // console.log(allCountries);
 
     allCountries.forEach((country, index) => {
         const { name, flag, population, region } = country;
@@ -75,7 +77,6 @@ function printCountries(allCountries) {
         detailsSpan.classList.add('hide');
 
         imgElement.setAttribute('src', flag);
-        // console.log(imgElement)
         listElement.appendChild(imgElement);
         nameSpan.textContent = name;
         listElement.appendChild(nameSpan);

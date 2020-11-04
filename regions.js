@@ -11,6 +11,7 @@ async function getAllCountries() {
         // console.log(result.data);
         let allCountries = result.data;
         allCountries = allCountries.filter(country => country.population > 0);
+        sortCountries(allCountries, 'population');
         printCountries(allCountries);
 
         orderSelect.addEventListener('change', (e) => {

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>World Regions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+</head>
+
+<body class="regions">
+    <div class="center">
+        <img class="world-map" src="./assets/world_map-trans.png" alt="wereld kaart" />
+    </div>
+    <select class="custom-select mr-sm-2">
+        <option value="population" selected>Aantal inwoners</option>
+        <option value="alphabetic">Alfabetisch</option>
+    </select>
+    <div>
+        <ul id="country-list">
+
+        </ul>
+    </div>
+    <script src="./assets/axios.min.js"></script>
+    <!-- <script src="./node_modules/axios/dist/axios.min.js"></script> -->
+    <script src="regions.js"></script>
+</body>
+
+</html>

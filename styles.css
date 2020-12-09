@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
 *,
 *:before,
 *:after {
@@ -10,9 +13,11 @@ html,
 body {
     height: 100%;
     width: 100%;
+    font-family: 'PT Sans', sans-serif; 
+    background-color: black;
 }
 
-body {
+.country-search {
     background: url("./assets/planet-earth.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -22,6 +27,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 input[type=text] {
@@ -59,7 +65,9 @@ button {
     display: flex;
     justify-content: space-evenly
 }
-
+#search-box{
+    margin-right: 20px;
+}
 .result {    
     height: 0;
      padding: 0 60px;
@@ -88,4 +96,129 @@ button {
 }
 #search-results img {
     margin-bottom: 20px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+}
+.world-map {
+    width: 70vw;
+}
+#country-list {
+    display: block;
+    cursor: pointer;
+    padding: 40px;
+}
+#country-list li {
+    position: relative;
+}
+#country-list img {
+width: 30px;
+margin-right: 10px;
+}
+.hide {
+    display: none;
+}
+
+.show span {
+    position: absolute;
+    content: 'x';
+    right: 2px;
+    top: 2px;
+    color: #888;
+}
+.show {
+    border-radius: 5px;
+    position: relative;
+    display: block;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 2px solid;
+}
+span.show {
+    padding-right: 30px;
+}
+
+#country-list {
+    column-count: 3;
+    list-style: none;
+    color: #4C824B;
+}
+#country-list .blue span {
+    color: #5575C1;
+}
+#country-list .green span{
+    color: #4C824B;
+}
+#country-list .red span{
+    color: #d14e5b;
+}
+#country-list .yellow span {
+    color: #FFD435;
+}
+
+#country-list .purple span {
+    color: #A653BA;
+}
+
+
+#country-list .blue .show {
+    color: #5575C1;
+    background-color: #b9cbf5;
+}
+#country-list .green .show {
+    color: #4C824B;
+    background-color: #c2ffc1;
+}
+#country-list .red .show {
+    color: #d14e5b;
+    background-color: #f7c1c6;
+}
+#country-list .yellow .show {
+    background-color: #FFD435;
+    color: #6e5d20;
+}
+#country-list .yellow .material-icons {
+    color: #6e5d20;
+}
+#country-list .purple .show  {
+    color: #A653BA;
+    background-color: #f4caff;
+}
+
+.mr-sm-2, .mx-sm-2 {
+    margin-right: .5rem !important;
+    margin-left: 40px;
+}
+.custom-select {
+    display: inline-block;
+    width: 200px;
+    height: calc(2.25rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    line-height: 1.5;
+    color: #d6b027;;
+    vertical-align: middle;
+    background: #000 url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='yellow' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right .75rem center;
+        background-size: auto;
+    background-size: 8px 10px;
+    border: 2px solid #d6b027;;
+    ;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.custom-select option {
+    background-color: #000;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+        margin-right: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
